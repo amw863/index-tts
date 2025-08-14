@@ -119,7 +119,7 @@ with gr.Blocks(title="IndexTTS Demo") as demo:
                 infer_mode = gr.Radio(choices=["普通推理", "批次推理"], label="推理模式",info="批次推理：更适合长句，性能翻倍",value="普通推理")        
                 gen_button = gr.Button("生成语音", key="gen_button",interactive=True)
             output_audio = gr.Audio(label="生成结果", visible=True,key="output_audio")
-        with gr.Accordion("高级生成参数设置", open=False):
+        with gr.Accordion("高级生成参数设置", open=True):
             with gr.Row():
                 with gr.Column(scale=1):
                     gr.Markdown("**GPT2 采样设置** _参数会影响音频多样性和生成速度详见[Generation strategies](https://huggingface.co/docs/transformers/main/en/generation_strategies)_")
