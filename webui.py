@@ -15,6 +15,7 @@ sys.path.append(os.path.join(current_dir, "indextts"))
 import argparse
 parser = argparse.ArgumentParser(description="IndexTTS WebUI")
 parser.add_argument("--verbose", action="store_true", default=False, help="Enable verbose mode")
+parser.add_argument("--share", type=bool, default=False, help="is share")
 parser.add_argument("--port", type=int, default=7860, help="Port to run the web UI on")
 parser.add_argument("--host", type=str, default="127.0.0.1", help="Host to run the web UI on")
 parser.add_argument("--model_dir", type=str, default="checkpoints", help="Model checkpoints directory")
@@ -209,4 +210,4 @@ with gr.Blocks(title="IndexTTS Demo") as demo:
 
 if __name__ == "__main__":
     demo.queue(20)
-    demo.launch(server_name=cmd_args.host, server_port=cmd_args.port)
+    demo.launch(server_name=cmd_args.host, server_port=cmd_args.port,share=cmd_args.share)
